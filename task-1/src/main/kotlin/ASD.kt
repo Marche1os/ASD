@@ -5,8 +5,8 @@ class ASD {
         private const val DEFAULT_CAPACITY = 12
     }
 
-    /*
-    1. Стек с максимальным значением
+    /**
+     * 1. Стек с динамической поддержкой максимальным значением
      */
     inner class StackWithMaxValue<T : Comparable<T>?> @JvmOverloads constructor(
         clazz: Class<T>,
@@ -14,45 +14,45 @@ class ASD {
     ) {
 
         val data: Array<T?> = java.lang.reflect.Array.newInstance(clazz, size) as Array<T?>
-        val maxValuesStack: Array<T?> = java.lang.reflect.Array.newInstance(clazz, size) as Array<T?>
+        val maxValuesChain: Array<T?> = java.lang.reflect.Array.newInstance(clazz, size) as Array<T?>
 
-        private var lastIndexPointer = 0
-        private var count = 0
+        private var lastIndex = 0
+        private var total = 0
 
         fun push(el: T) {
-            if (count == 0) {
+            if (total == 0) {
                 pushOnEmptyStack(el)
                 return
             }
 
-            data[lastIndexPointer] = el
-            val currentMaxValue = maxValuesStack[lastIndexPointer - 1]
+            data[lastIndex] = el
+            val currentMaxValue = maxValuesChain[lastIndex - 1]
             if (currentMaxValue!! > el) {
-                maxValuesStack[lastIndexPointer] = currentMaxValue
+                maxValuesChain[lastIndex] = currentMaxValue
             } else {
-                maxValuesStack[lastIndexPointer] = el
+                maxValuesChain[lastIndex] = el
             }
 
-            lastIndexPointer++
-            count++
+            lastIndex++
+            total++
         }
 
         private fun pushOnEmptyStack(el: T) {
-            data[lastIndexPointer] = el
-            maxValuesStack[lastIndexPointer] = el
-            lastIndexPointer++
-            count++
+            data[lastIndex] = el
+            maxValuesChain[lastIndex] = el
+            lastIndex++
+            total++
         }
 
         @Throws(NullPointerException::class)
         fun pop(): T? {
-            if (lastIndexPointer == 0) throw NullPointerException("Stack is empty")
+            if (lastIndex == 0) throw NullPointerException("Stack is empty")
 
-            maxValuesStack[lastIndexPointer] = null
-            data[lastIndexPointer] = null
+            maxValuesChain[lastIndex] = null
+            data[lastIndex] = null
 
-            lastIndexPointer--
-            return data[lastIndexPointer]
+            lastIndex--
+            return data[lastIndex]
         }
 
         val isEmpty: Boolean
@@ -65,11 +65,11 @@ class ASD {
 
 
     /**
-     * 2. Очередь с максимальным значением
+     * 2. Очередь с динамической поддержкой максимальным значением
      */
     inner class QueueWithMaxValue<T : Comparable<T>?> {
         private val data: Deque<T> = LinkedList()
-        private val maxValues: Deque<T> = LinkedList()
+        private val maxValuesChain: Deque<T> = LinkedList()
 
         fun enqueue(value: T) {
             if (value == null) {
@@ -78,11 +78,11 @@ class ASD {
 
             data.addLast(value)
 
-            while (!maxValues.isEmpty() && value > maxValues.peekLast()) {
-                maxValues.removeFirst()
+            while (!maxValuesChain.isEmpty() && value > maxValuesChain.peekLast()) {
+                maxValuesChain.removeFirst()
             }
 
-            maxValues.addLast(value)
+            maxValuesChain.addLast(value)
         }
 
         fun dequeue(): T? {
@@ -91,8 +91,8 @@ class ASD {
             }
 
             val value = data.removeFirst()
-            if (value === maxValues.peekFirst()) {
-                maxValues.removeFirst()
+            if (value === maxValuesChain.peekFirst()) {
+                maxValuesChain.removeFirst()
             }
 
             return value
@@ -100,11 +100,11 @@ class ASD {
 
         val max: T?
             get() {
-                if (maxValues.isEmpty()) {
+                if (maxValuesChain.isEmpty()) {
                     return null
                 }
 
-                return maxValues.peekFirst()
+                return maxValuesChain.peekFirst()
             }
     }
 

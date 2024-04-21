@@ -1,6 +1,6 @@
 import java.util.PriorityQueue
 
-class HuffmanEncoder {
+class HuffmanCodes {
 
     private fun buildPriorityQueue(frequencyMap: Map<Char, Int>): PriorityQueue<Node> =
         PriorityQueue<Node>().apply {
@@ -16,7 +16,7 @@ class HuffmanEncoder {
             }
         }
 
-    private fun buildHuffmanTree(priorityQueue: PriorityQueue<Node>): Node? {
+    private fun buildTree(priorityQueue: PriorityQueue<Node>): Node? {
         while (priorityQueue.size > 1) {
             val left = priorityQueue.poll()
             val right = priorityQueue.poll()
@@ -57,7 +57,7 @@ class HuffmanEncoder {
             .eachCount()
 
         val priorityQueue = buildPriorityQueue(frequencyMap)
-        val rootHuffmanNode = buildHuffmanTree(priorityQueue)
+        val rootHuffmanNode = buildTree(priorityQueue)
 
         return buildCodesTable(rootHuffmanNode, "", mutableMapOf())
             .toList()

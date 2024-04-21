@@ -3,3 +3,6 @@ plugins {
 }
 rootProject.name = "ASD"
 include("task-1")
+include("task-2")
+include("task-2")
+include("task-2")

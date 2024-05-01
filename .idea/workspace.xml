@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a049072c-1cbf-4c03-8818-2035ee82c408" name="Changes" comment="Реализовано 1 задание по АСД">
-      <change afterPath="$PROJECT_DIR$/task-2/src/main/kotlin/HaffmanCode.kt" afterDir="false" />
+    <list default="true" id="a049072c-1cbf-4c03-8818-2035ee82c408" name="Changes" comment="Реализовано 3 задание по АСД">
+      <change afterPath="$PROJECT_DIR$/task-4/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-4/src/main/kotlin/DecisionTree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
@@ -42,6 +43,10 @@
     &quot;accountId&quot;: &quot;c2e17559-f66d-443f-bbf6-d3c532613b5a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.23/a1ef32fd0bf9dea1798a1e22a1ef914707931b24/kotlin-stdlib-1.9.23-sources.jar!/commonMain/kotlin/collections/ReversedViews.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-18.0.2/Contents/Home/lib/src.zip!/java.base/java/util/PriorityQueue.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -54,12 +59,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build ASD.executor": "Run",
+    "Kotlin.DecisionTreeKt.executor": "Run",
+    "Kotlin.HaffmanCodeKt.executor": "Run",
+    "Kotlin.HaffmanNodeKt.executor": "Run",
+    "Kotlin.HuffmanNodeKt.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "/Users/marche1os/bober_school/ASD/task-2/src/main/kotlin/Main.kt",
+    "onboarding.tips.debug.path": "/Users/marche1os/bober_school/ASD/task-4/src/main/kotlin/Main.kt",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -70,7 +79,33 @@
     ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/task-2/src/main/kotlin/task" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Kotlin.DecisionTreeKt">
+    <configuration name="DecisionTreeKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.DecisionTreeKt" />
+      <module name="ASD.task-4.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HaffmanCodeKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.HaffmanCodeKt" />
+      <module name="ASD.task-2.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HaffmanNodeKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HaffmanNodeKt" />
+      <module name="ASD.task-2.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.MainKt" />
       <module name="ASD.task-1.main" />
@@ -78,8 +113,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NodeKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NodeKt" />
+      <module name="ASD.task-2.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.DecisionTreeKt" />
+        <item itemvalue="Kotlin.HaffmanNodeKt" />
+        <item itemvalue="Kotlin.HaffmanCodeKt" />
         <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
@@ -109,12 +154,46 @@
       <option name="project" value="LOCAL" />
       <updated>1713298323569</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Реализовано 2 задание по АСД">
+      <option name="closed" value="true" />
+      <created>1713735673497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713735673497</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Реализовано 2 задание по АСД">
+      <option name="closed" value="true" />
+      <created>1713736792745</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713736792745</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Реализовано 2 задание по АСД">
+      <option name="closed" value="true" />
+      <created>1713736866168</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713736866168</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Реализовано 3 задание по АСД">
+      <option name="closed" value="true" />
+      <created>1714109043811</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714109043811</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Реализовано 1 задание по АСД" />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализовано 1 задание по АСД" />
+    <MESSAGE value="Реализовано 2 задание по АСД" />
+    <MESSAGE value="Реализовано 3 задание по АСД" />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализовано 3 задание по АСД" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -128,6 +207,16 @@
           <url>file://$PROJECT_DIR$/task-2/src/main/kotlin/Main.kt</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/task-3/src/main/kotlin/Main.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/task-4/src/main/kotlin/Main.kt</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

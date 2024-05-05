@@ -19,7 +19,7 @@ class DecisionTree(
         val frequency = criterias.groupingBy { it }.eachCount()
         val total = criterias.size.toDouble()
 
-        val sum =  -frequency.values.sumOf { count ->
+        val sum = -frequency.values.sumOf { count ->
             val fraction = count / total
             fraction * log2(fraction)
         }
@@ -54,15 +54,59 @@ class DecisionTree(
             .setScale(3, RoundingMode.DOWN)
             .toDouble()
     }
+
+    fun build(
+        criterias: MutableSet<String> = mutableSetOf(),
+        target: String = "Play Tennis"
+    ): Node {
+        if (dataSet.map { it.getValue(target) }.distinct().size == 1) {
+            return Node(
+                dataSet
+                    .first()
+                    .getValue(target)
+            )
+        }
+
+        val attributes = dataSet.first().keys - target - criterias
+
+        if (attributes.isEmpty()) {
+            return Node(
+                dataSet
+                    .groupBy { it.getValue(target) }
+                    .maxBy { it.value.size }
+                    .key
+            )
+        }
+
+        val bestCriteria = attributes.maxBy { calcGain(it, target) }
+        criterias.add(bestCriteria)
+
+        val subsets = dataSet.groupBy { it.getValue(bestCriteria) }
+        val node = Node(bestCriteria)
+
+        subsets.forEach { (attrValue, subset) ->
+            val child = DecisionTree(subset)
+                .build(
+                    criterias.toMutableSet(), target
+                )
+
+            node.branches[attrValue] = child
+        }
+
+        return node
+    }
+
+    data class Node(
+        val name: String,
+        val branches: MutableMap<String, Node> = mutableMapOf(),
+    )
 }
 
 fun main() {
     val tree = DecisionTree(DATA_SET)
 
-    val outlookGain = tree.calcGain("Play Tennis", "Outlook") //0.246
-    val humidityGain = tree.calcGain("Play Tennis", "Humidity") //0.151
-    val windGain = tree.calcGain("Play Tennis", "Wind") //0.048
-    val temperatureGain = tree.calcGain("Play Tennis", "Temperature") //0.029
+    val root = tree.build()
+    println(root)
 }
 
 val DATA_SET = listOf(

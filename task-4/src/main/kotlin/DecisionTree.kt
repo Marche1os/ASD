@@ -55,11 +55,18 @@ class DecisionTree(
             .toDouble()
     }
 
+    // алгоритм ID3  c примерами на теннисных данных
+    // Тест: https://github.com/Marche1os/ASD/blob/main/task-4/src/test/kotlin/DecisionTreeTest.kt
     fun build(
         criterias: MutableSet<String> = mutableSetOf(),
         target: String = "Play Tennis"
     ): Node {
-        if (dataSet.map { it.getValue(target) }.distinct().size == 1) {
+        if (
+            dataSet
+                .map { it.getValue(target) }
+                .distinct()
+                .size == 1
+        ) {
             return Node(
                 dataSet
                     .first()

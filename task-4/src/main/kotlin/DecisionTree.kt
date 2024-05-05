@@ -56,7 +56,7 @@ class DecisionTree(
     }
 
     // алгоритм ID3  c примерами на теннисных данных
-    // Тест: https://github.com/Marche1os/ASD/blob/main/task-4/src/test/kotlin/DecisionTreeTest.kt
+    // Тест: [https://github.com/Marche1os/ASD/blob/main/task-4/src/test/kotlin/DecisionTreeTest.kt]
     fun build(
         criterias: MutableSet<String> = mutableSetOf(),
         target: String = "Play Tennis"
